@@ -1,0 +1,8 @@
+spring:
+  config:
+    import: ${ENV_CLOUD_CONFIG_SERVER:optional:configserver:http://localhost:8001}
+  cloud:
+    config:
+      name: api-microservices-gateway
+      profile: ${ENV_CLOUD_CONFIG_PROFILE:default}
+      label: ${ENV_CLOUD_CONFIG_LABEL:master}
