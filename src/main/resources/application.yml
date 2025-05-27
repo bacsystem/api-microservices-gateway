@@ -6,3 +6,29 @@ spring:
       name: api-microservices-gateway
       profile: ${ENV_CLOUD_CONFIG_PROFILE:default}
       label: ${ENV_CLOUD_CONFIG_LABEL:master}
+        # Eureka server:
+        #gateway:
+        #routes:
+        # - id: eureka-server
+        #   uri: http://localhost:8761
+      # predicates:
+      #  - name:
+  # Keycloak configuration
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8090/realms/health-pmch
+        registration:
+          keycloak:
+            provider: 'keycloak'
+            client-id: 'client-health-pmch'
+            client-secret: 'k7i0Ww7dtSbhwCBGFztZER5gtpzQYe9V'
+            scope: 'openid'
+            authorization-grant-type: 'authorization_code'
+            redirect-uri: 'http://localhost:8080/login/oauth2/code/keycloak'
+
+
+
+
